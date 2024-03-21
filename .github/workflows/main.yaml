@@ -1,13 +1,15 @@
-name: Terraform AWS
+name: Terraform Workflow
 
 on:
-  workflow_dispatch:
+  push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
-  terraform_init:
+  terraform:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -18,30 +20,20 @@ jobs:
           terraform_version: 1.1.0
 
       - name: Terraform Init
-        run: |
-          ./s3resource
-          terraform init
-
-  terraform_plan_apply:
-    runs-on: ubuntu-latest
-    needs: terraform_init
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+        working-directory: ./s3module
+        run: terraform init
 
       - name: Terraform Plan
-        run: |
-          cd s3module
-          terraform plan 
+        working-directory: ./s3module
+        run: terraform plan
 
       - name: Terraform Apply
-        run: |
-          cd s3module
-          terraform apply -auto-approve
+        working-directory: ./s3module
+        run: terraform apply -auto-approve
         env:
           TF_VAR_bucket_name: heena
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 
 # name: Terraform AWS
