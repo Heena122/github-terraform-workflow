@@ -28,14 +28,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Terraform Plan
-        run: terraform plan -input=false
+        run: terraform plan 
 
       - name: Terraform Apply
-        run: terraform apply -input=false
+        run: terraform apply -auto-approve
         env:
-          TF_VAR_bucket_name: your_bucket_name_here
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          TF_VAR_bucket_name: heena
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
 
 
 # name: Terraform AWS
