@@ -23,7 +23,7 @@ jobs:
       - name: Terraform Init
         run: terraform init
       
-      
+
       - name: Terraform Plan
         run: terraform plan
 
@@ -46,7 +46,7 @@ jobs:
   terraform_apply:
     runs-on: self-hosted
     # container: ubuntu-latest
-    needs: terraform_plan
+    # needs: terraform_plan
 
     steps:
       - name: Checkout repository
