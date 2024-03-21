@@ -19,7 +19,7 @@ jobs:
 
       - name: Terraform Init
         run: |
-          cd s3module
+          ../s3resource
           terraform init
 
   terraform_plan_apply:
