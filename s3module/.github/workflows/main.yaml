@@ -8,7 +8,8 @@ on:
 jobs:
   terraform:
     name: Terraform
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout
@@ -24,9 +25,10 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan
+        
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
-        env:
-          TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      # - name: Terraform Apply
+      #   run: terraform apply -auto-approve
+      #   env:
+      #     TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
