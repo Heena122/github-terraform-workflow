@@ -44,7 +44,7 @@ jobs:
   #       #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   terraform_apply:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     # container: ubuntu-latest
     # needs: terraform_plan
 
