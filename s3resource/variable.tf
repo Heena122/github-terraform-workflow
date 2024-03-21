@@ -8,4 +8,4 @@ variable "tags" {
     description = "tags values"
     default = {}
   
-}
+} 
