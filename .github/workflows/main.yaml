@@ -29,13 +29,13 @@ jobs:
 
       - name: Terraform Plan
         run: |
-        cd s3module
-        terraform plan 
+          cd s3module
+          terraform plan 
 
       - name: Terraform Apply
         run: |
-        cd s3module
-         terraform apply -auto-approve
+          cd s3module
+          terraform apply -auto-approve
         env:
           TF_VAR_bucket_name: heena
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
