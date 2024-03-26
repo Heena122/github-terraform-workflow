@@ -1,5 +1,3 @@
-
-
 name: Terraform Delete Bucket Workflow
 
 on:
