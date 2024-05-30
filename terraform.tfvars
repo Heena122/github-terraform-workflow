@@ -1,9 +1,9 @@
-region="us-east-1"
+region="eu-north-1"
 
-bucket_name="heena123987"
+bucket_name="heena102"
 
 tags={
-    Name="vansh_bucket"
-    Owner="vanshshrivastavavv@gmail.com"
+    Name="demo_bucket"
+    Owner="demo1@gmail.com"
     Purpose="For practice"
 }
